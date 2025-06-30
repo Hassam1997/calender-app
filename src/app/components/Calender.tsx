@@ -87,12 +87,12 @@ const Calendar: React.FC = () => {
   const eventRender = (info: any) => {
     const { event } = info;
 
-    const icons: Record<string, JSX.Element> = {
+    const icons = {
       call: <FontAwesomeIcon icon={faPhone} className="mr-2 text-blue-500" />,
       meeting: <FontAwesomeIcon icon={faUsers} className="mr-2 text-green-600" />,
       checkup: <FontAwesomeIcon icon={faMedkit} className="mr-2 text-red-500" />,
       fitness: <FontAwesomeIcon icon={faRunning} className="mr-2 text-purple-500" />,
-    };
+    } as any
 
     const icon = icons[event.extendedProps.type] || icons['meeting'];
     const eventTime = `${new Date(AppointmentUtil.start_time(event)).toLocaleTimeString()} - ${new Date(AppointmentUtil.end_time(event.extendedProps)).toLocaleTimeString()}`;
